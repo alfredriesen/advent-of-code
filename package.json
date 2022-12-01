@@ -1,0 +1,9 @@
+{
+  "name": "advent-of-code",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:alfredriesen/advent-of-code.git",
+  "author": "Alfred Riesen <alfred.riesen@sinetcon.com>",
+  "license": "MIT",
+  "type": "module"
+}
