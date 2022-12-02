@@ -1,6 +1,21 @@
 import input from './input.js'
 
 let points = 0
+let value = {
+    X: 1,
+    Y: 2,
+    Z: 3,
+}
+let rules = {
+    A:{ X: 0, Y: 3, Z: 6,},
+    B:{ X: 0, Y: 3, Z: 6,},
+    C:{ X: 0, Y: 3, Z: 6,},
+}
+let map = {
+    A:{ X: 'Z', Y: 'X', Z: 'Y',},
+    B:{ X: 'X', Y: 'Y', Z: 'Z',},
+    C:{ X: 'Y', Y: 'Z', Z: 'X',},
+}
 input.split('\n')
     .forEach((line)=>{
         let opponent
@@ -9,49 +24,7 @@ input.split('\n')
                 opponent = item
                 return acc
             }
-            switch (opponent) {
-                case 'A' : {
-                    switch (item) {
-                        case 'X' : {
-                            return 3;
-                        }
-                        case 'Y' : {
-                            return 3 + 1;
-                        }
-                        case 'Z' : {
-                            return 6 + 2;
-                        }
-                    }
-                    break
-                }
-                case 'B' : {
-                    switch (item) {
-                        case 'X' : {
-                            return 1;
-                        }
-                        case 'Y' : {
-                            return 3 + 2;
-                        }
-                        case 'Z' : {
-                            return 6 + 3;
-                        }
-                    }
-                    break
-                }
-                case 'C' : {
-                    switch (item) {
-                        case 'X' : {
-                            return 2;
-                        }
-                        case 'Y' : {
-                            return 3 + 3;
-                        }
-                        case 'Z' : {
-                            return 6 + 1;
-                        }
-                    }
-                }
-            }
+            return rules[opponent][item] + value[map[opponent][item]]
         },0)
     })
 

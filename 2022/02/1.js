@@ -1,6 +1,16 @@
 import input from './input.js'
 
 let points = 0
+let value = {
+    X: 1,
+    Y: 2,
+    Z: 3,
+}
+let rules = {
+    A:{ X: 3, Y: 6, Z: 0,},
+    B:{ X: 0, Y: 3, Z: 6,},
+    C:{ X: 6, Y: 0, Z: 3,},
+}
 input.split('\n')
     .forEach((line)=>{
         let opponent
@@ -9,49 +19,7 @@ input.split('\n')
                 opponent = item
                 return acc
             }
-            switch (opponent) {
-                case 'A' : {
-                    switch (item) {
-                        case 'X' : {
-                            return 3 + 1;
-                        }
-                        case 'Y' : {
-                            return 6 + 2;
-                        }
-                        case 'Z' : {
-                            return 3;
-                        }
-                    }
-                    break
-                }
-                case 'B' : {
-                    switch (item) {
-                        case 'X' : {
-                            return 1;
-                        }
-                        case 'Y' : {
-                            return 3 + 2;
-                        }
-                        case 'Z' : {
-                            return 6 + 3;
-                        }
-                    }
-                    break
-                }
-                case 'C' : {
-                    switch (item) {
-                        case 'X' : {
-                            return 6 + 1;
-                        }
-                        case 'Y' : {
-                            return 2;
-                        }
-                        case 'Z' : {
-                            return 3 + 3;
-                        }
-                    }
-                }
-            }
+            return rules[opponent][item] + value[item]
         },0)
     })
 
